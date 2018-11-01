@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - codcker build -t theolderbear/docker -f Dockerfile.dev .
+  - docker build -t theolderbear/docker -f Dockerfile.dev .
 
 script:
   - docker run theolderbear/docker npm run test -- --coverage
