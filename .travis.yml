@@ -7,3 +7,15 @@ before_install:
 
 script:
   - docker run theolderbear/docker npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "docker-react-web"
+  env: "DockerReactWeb-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-374825790429"
+  bucket_path: "docker-react-web"
+  on:
+    branch: master
+  access_key: "$AWS_ACCESS_KEY"
+    secure: "$$AWS_SECRET_KEY"
